@@ -1,10 +1,13 @@
 import os
 
-fullpath = os.path.join("boat.txt")
+fullpath = "boat.txt"
 print("opening file:", fullpath)
 
-file_handle = open(fullpath, "r")
-contents = file_handle.read()
-file_handle.close()
+with open(fullpath, "r") as file_handle:
+    first_line = file_handle.readline()
+    print("First line:", first_line.strip())
 
-print(contents)
+    all_lines = file_handle.readlines()
+
+    for line in all_lines:
+        print(line.strip())

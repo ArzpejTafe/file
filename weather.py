@@ -26,13 +26,13 @@ with open(fullpath, "r") as in_file:
     all_lines = in_file.readlines()
 
     for line in all_lines:
-        line = line.strip()
+        bits = line.split(":")
 
-        weather_list = line.split(":")
-
-        city = weather_list[0]
-        temperature = int(weather_list[1])
+        city = bits[0].strip()
+        temperature = int(bits[1].strip())
 
         weather_dictionary[city] = temperature
+        weather_list.append((city, temperature))
 
 print(weather_dictionary)
+print(weather_list)

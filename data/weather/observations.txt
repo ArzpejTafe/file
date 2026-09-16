@@ -1,0 +1,4 @@
+Perth:20
+Brisbane:327
+Melbourne:-2
+Sydney:24

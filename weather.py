@@ -1,16 +1,20 @@
 import os
 
-location = ["week9", "data", "weather", "observations.txt"]
+location = ["data", "weather", "observations.txt"]
 
 fullpath = os.path.join(*location)
 print(fullpath)
 
-for index in range(len(location) - 1):
-    subfolder = os.path.join(*location[0:index + 1])
-    print(subfolder)
+if not os.path.exists(os.path.dirname(fullpath)):
+    os.makedirs(os.path.dirname(fullpath))
 
-    if not os.path.exists(subfolder):
-        os.makedirs(subfolder)
+temps = {
+    "Perth": 20,
+    "Brisbane": 327,
+    "Melbourne": -2,
+    "Sydney": 24
+}
 
 with open(fullpath, "w") as out_file:
-    pass
+    for city, temperature in temps.items():
+        out_file.write(f"{city}:{temperature}\n")

@@ -1,4 +1,9 @@
-file_handle = open(r"C:\Users\20170213.ED\Documents\week9\boat.txt", "r")
+import os
+
+fullpath = os.path.join("boat.txt")
+print("opening file:", fullpath)
+
+file_handle = open(fullpath, "r")
 contents = file_handle.read()
 file_handle.close()
 
